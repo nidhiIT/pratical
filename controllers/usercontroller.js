@@ -16,7 +16,7 @@ const register_user = async(req,res)=>{
 
     try{
         const spassword=await securePassword(req.body.password)
-         new User({
+        const user =  new User({
             name : req.body.name,
             email:req.body.email,
             password: spassword,
