@@ -24,6 +24,10 @@ const  user = mongoose.Schema({
     type:{
         type:Number,
         require:true
+    },
+    token:{
+        type:String,
+        default:''
     }
 
 })

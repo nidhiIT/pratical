@@ -24,9 +24,24 @@ const  storage =multer.diskStorage({
 const upload = multer({storage:storage})
 
 
-
+const auth = require("../middleware/auth")
 const user_controller = require("../controllers/usercontroller")
 user_routes.post('/register',upload.single('image') , user_controller.register_user)
 
+
+user_routes.get('/test',auth,function(req,res)
+{
+    res.status(200).send({sucess:true,msg:"autheticatited"})
+})
 user_routes.post('/login',user_controller.user_login)
+
+//update password
+
+user_routes.post('/updatepassword',user_controller.update_password)
+
+//forget password
+user_routes.post('/forgetpassword',user_controller.forget_password)
+//reset password
+user_routes.get('/resetpassword',user_controller.reset_password)
+
 module.exports = user_routes
