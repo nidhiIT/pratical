@@ -11,6 +11,11 @@ app.use('/api',user_routes)
 //store routes
 const store_route  = require("./routes/storeroute")
 app.use('/api',store_route)
+
+//category routes
+const category_route = require('./routes/categoryroute')
+app.use('/api',category_route)
+
 app.listen(3000,function(){
     console.log("server is ready")
 });
